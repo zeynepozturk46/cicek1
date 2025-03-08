@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Çiçeklerin Ortalanması */
+.flowers {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Not Kağıdı */
+.message {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: #ffeb99; /* Sarımsı kağıt rengi */
+    padding: 20px;
+    font-size: 16px;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0; /* Başlangıçta görünmez */
+    transition: opacity 1s ease-in-out;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+    border: 2px solid #d4af37; /* Altın rengi çerçeve */
+}
+
+/* Çiçek Merkezi (Sarı Yuvarlak) - Daha Aşağı Kaydırıldı */
+.flower-center {
+    width: 40px;
+    height: 40px;
+    background: yellow;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(55% + 25px); /* Önce 5px aşağıydı, şimdi 12px aşağı çekildi */
+    left: calc(50% + 23px);
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px rgba(255, 255, 0, 1);
+    z-index: 2; /* Üstte kalmasını sağlıyoruz */
+}
+
+/* Mor Parlayan Yapraklar */
+.petal {
+    width: 50px;
+    height: 50px;
+    background: purple;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.8); /* Parlama efekti */
+    animation: glow 2s infinite alternate;
+}
+
+/* Yaprakların Dizilimi */
+.petal1 { top: -40px; left: 0; }  /* Üst */
+.petal2 { top: -20px; left: 35px; }  /* Üst Sağ */
+.petal3 { top: 20px; left: 35px; }  /* Alt Sağ */
+.petal4 { top: 40px; left: 0; }  /* Alt */
+.petal5 { top: 20px; left: -35px; }  /* Alt Sol */
+.petal6 { top: -20px; left: -35px; }  /* Üst Sol */
+
+/* Çiçek Sapı (Gerçekten Yarım Santim Sağa Kaydırıldı) */
+.flower-stem {
+    width: 5px;
+    height: 100px;
+    background: green;
+    position: absolute;
+    top: calc(75px + 15px);
+    left: calc(50% + 23px); /* 5 piksel sağa kaydırıldı (yaklaşık yarım santim) */
+    transform: translateX(-50%);
+}rm: translateX(-45%); /* Eskiden -50% idi, şimdi biraz sağa kaydırıldı */
+}
+
+/* Parlama Animasyonu */
+@keyframes glow {
+    0% { box-shadow: 0 0 15px rgba(255, 0, 255, 0.5); }
+    100% { box-shadow: 0 0 30px rgba(255, 0, 255, 1); }
+}
